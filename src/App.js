@@ -1,24 +1,42 @@
-import logo from './logo.svg';
 import './App.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { getWeatherData, fiveDayWeatherData } from './store/index';
+import React, { useEffect } from 'react';
+import HeaderSection from './Components/HeaderSection';
+import WeatherSection from './Components/WeatherSection';
+import { fetchWeatherData } from './store/ComponentData/FetchData';
 
 function App() {
+  const weather = useSelector((state) => state.weatherData.cityWeatherData);
+  const cities = useSelector((state => state.weatherData.cities));
+  const weatherAPIData = useSelector((state) => state.weatherAPIData.data);
+  const statusAPI = useSelector((state) => state.weatherAPIData.status);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchWeatherData(cities));
+  }, [cities]);
+
+  useEffect(() => {
+    if (statusAPI)
+      dispatch(getWeatherData(weatherAPIData));
+  }, [statusAPI]);
+
+  useEffect(() => {
+    if (statusAPI)
+      dispatch(fiveDayWeatherData())
+  }, [weather])
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+        <div className="App">
+          <HeaderSection />
+          {weather &&
+            <WeatherSection />
+          }
+          </div>
   );
 }
 

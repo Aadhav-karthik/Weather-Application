@@ -1,0 +1,39 @@
+.col-time{
+    color: grey;
+    font-size: 74%;
+    padding-right: 0.4rem;
+}
+
+.col-dir{
+    color: rgb(187, 255, 243);
+}
+
+.wind-direction{
+    font-size: 160%;
+    margin:2rem 0.6rem !important;
+}
+
+.col-speed{
+    font-size: 80%;
+    margin-top:2.4rem;
+}
+
+@media only screen and (max-width: 768px){
+    .col-speed{
+        font-size: 50%;
+        margin-top:0.5rem;
+    }
+    .wind-direction{
+        font-size: 130%;
+        margin:1rem 0.6rem !important;
+    }
+
+}
+
+.news-icon{
+    width: 4rem;
+    height: 4rem;      
+    right:0;
+    top: -2rem;
+}
+

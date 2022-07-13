@@ -1,0 +1,62 @@
+.chart-nav-btn {
+    box-shadow: none !important;
+    color: white !important;
+}
+
+.chart-data {
+    height: 17rem !important;
+}
+
+@media only screen and (max-width:768px){
+.chart-data{
+    height: 10rem !important;
+}
+
+.specific-header{
+    font-size: 70%;
+}
+} 
+
+.one-day-data{
+    border-radius: 0.5rem !important;
+    box-shadow: 0.15rem 0.15rem 1rem rgb(4, 2, 2);
+}
+
+.one-day-bottom-card{
+    border: 0.05rem solid rgba(93, 93, 93, 0.21);
+} 
+
+.cloud {
+    color: blue;
+}
+
+.temperature {
+    font-size: 120%;
+    color: rgb(255, 136, 0);
+}
+
+.wind-speed {
+    color: rgb(142, 142, 142);
+    font-size: 120%;
+
+}
+
+.humidity-one {
+    font-size: 120%;
+}
+
+.rain-pop {
+    color: aqua !important;
+    font-size: 120%;
+}
+
+.cloud {
+    color: rgb(135, 105, 242);
+    font-size: 120%;
+}
+
+.visibility {
+    font-size: 120%;
+    color: rgb(249, 245, 129);
+
+}

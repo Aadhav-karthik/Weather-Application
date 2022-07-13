@@ -1,0 +1,29 @@
+.clouds{
+    font-size:140%;
+    color:rgb(124, 124, 124);
+}
+
+.rain{
+    font-size:140%;
+    color:rgb(0, 145, 236);
+}
+
+.clear{
+    font-size:140%;
+    color:rgb(216, 180, 0);
+}
+
+.wind{
+    color:rgb(142, 142, 142);
+    padding-right: 0.2rem;
+}
+
+.humidity{
+    padding-right:0.4rem;
+    color:rgb(0, 81, 255);
+}
+
+.pressure{
+    color:rgb(178, 255, 123);
+}
+

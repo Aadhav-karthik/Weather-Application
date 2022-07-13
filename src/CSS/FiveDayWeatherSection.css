@@ -1,0 +1,57 @@
+.city-header{
+    float: right;
+    padding-right: 0.78rem;
+}
+
+.five-day-header{
+    padding-left:1.5rem !important;
+    border-bottom: none;
+}
+
+.five-day-card{
+    border-radius: 0.5rem !important;
+    box-shadow: 0.15rem 0.15rem 1rem rgba(47, 47, 47, 0.627);
+}
+
+.weather-days{
+    padding:2.3rem 0.3rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.348);
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 768px){
+    .weather-days{
+        padding:0.7rem 0.1rem;
+        font-size: 90%;
+    }
+
+    .five-day-header{
+        font-size:70%;
+        border-bottom: none;
+
+    }
+}
+
+.weather-days:hover{
+    background-color:rgba(90, 197, 255, 0.463);
+}
+
+.card-body{
+    padding: 0 1rem;
+}
+
+
+strong{
+    font-size:110%;
+}
+
+
+
+.description{
+    padding-left: 0 !important;
+}
+
+.wind-speed{
+    padding-left:0;
+}
+
