@@ -62,10 +62,11 @@ function dayWiseWeatherData(weatherData) {
         return arr;
     }, {}
     );
-
+    let count = 0;
     for (let key in weatherDataDates) {
-        if (weatherDataDates[key].length < 4) {
+        if (weatherDataDates[key].length <= 4 && count === 0) {
             delete weatherDataDates[key];
+            ++count;
         }
     }
 
