@@ -1,3 +1,7 @@
 .App {
   text-align: center;
 }
+
+.loading-element {
+transform: translateY(14rem);
+}

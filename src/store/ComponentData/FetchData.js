@@ -11,28 +11,33 @@ export const fetchWeatherData = createAsyncThunk(
         });
 
         const fetchUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates[cityID].lat}&lon=${coordinates[cityID].lon}&appid=`;
-        return await fetch(fetchUrl + process.env.REACT_APP_API_KEY).then(response => response.json());
+        
+        return await fetch(fetchUrl + process.env.REACT_APP_API_KEY).then(response => {
+            if (response.status === 404)
+                throw new Error("Server Responded with Error");
+            return response.json();
+        });
 
     }
 )
 
 export const weatherAPISlice = createSlice({
     name: 'weatherData',
-    initialState: { data: {}, status: null },
+    initialState: { data: {}, status: null, error:null },
     extraReducers: {
         [fetchWeatherData.pending]: (state, action) => {
-            state.status = false;
-
+            state.status = "pending";
+            state.error = "Loading...";
         },
 
         [fetchWeatherData.fulfilled]: (state, action) => {
-            state.status = true;
+            state.status = "fulfilled";
             state.data = action.payload;
         },
 
         [fetchWeatherData.rejected]: (state, action) => {
-            state.status = false;
-
+            state.status = "rejected";
+            state.error = "Server Responded with Error. Please try again later.";
         }
     }
 }

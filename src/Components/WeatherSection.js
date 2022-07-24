@@ -7,7 +7,6 @@ import OneDayWeatherSection from './WeatherSections/OneDayWeatherSection';
 function WeatherSection(props){
     const oneDayWeather = useSelector((state) => state.weatherData.oneDayWeatherData);
     const fiveDayWeather = useSelector((state) => state.weatherData.fiveDayWeatherData);
-
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -19,7 +18,6 @@ function WeatherSection(props){
         <div className="row mt-md-3 pt-2 pt-md-0 mt-5 text-start">
         <FiveDayWeatherSection/>
         {Object.keys(oneDayWeather).length !== 0 ? <OneDayWeatherSection/> : null}
-        
         </div> 
         </section>
     )

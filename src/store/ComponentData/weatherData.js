@@ -55,10 +55,10 @@ export const weatherSlice = createSlice({
 function dayWiseWeatherData(weatherData) {
     const weatherDataDates = weatherData.reduce((arr, item) => {
         const date = item["dt_txt"];
-        if (!arr[new Date(date).toLocaleDateString()]) {
-            arr[new Date(date).toLocaleDateString()] = [];
+        if (!arr[new Date(date.split(" ")[0].replace(/-/g,'/')).toLocaleDateString()]) {
+            arr[new Date(date.split(" ")[0].replace(/-/g,'/')).toLocaleDateString()] = [];
         }
-        arr[new Date(date).toLocaleDateString()].push(item);
+        arr[new Date(date.split(" ")[0].replace(/-/g,'/')).toLocaleDateString()].push(item);
         return arr;
     }, {}
     );

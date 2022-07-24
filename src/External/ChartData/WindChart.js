@@ -47,13 +47,13 @@ function WindChart(props) {
                     <div>
                         <div className="float-start pe-2">{weatherIcon.WIND}</div>
                         <div className="float-end specific-header"><small>Wind Gust</small>
-                            <br /><strong>{fiveDayWeather[Object.keys(oneDayWeather)[0]].windGust} km/h</strong>
+                            <br /><strong data-testid="windGust">{fiveDayWeather[Object.keys(oneDayWeather)[0]].windGust} km/h</strong>
                         </div>
                     </div>
                     <div>
                         <div className="float-start pe-2">{weatherIcon.PRESSURE}</div>
                         <div className="float-end specific-header"><small>Pressure</small>
-                            <br /><strong>{fiveDayWeather[Object.keys(oneDayWeather)[0]].pressure} atm</strong>
+                            <br /><strong data-testid="pressure">{fiveDayWeather[Object.keys(oneDayWeather)[0]].pressure} atm</strong>
                         </div>
                     </div>
                 </div>

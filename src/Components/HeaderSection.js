@@ -9,7 +9,7 @@ function HeaderSection(props) {
     return (
         <header className="bg-dark">
             <div className="container row py-2">
-                <h3 className="col-md-5 col-4 text-light">ReactWeather</h3>
+                <h3 data-testid="pageHeader" className="col-md-5 col-4 text-light">ReactWeather</h3>
                 <CityDropdown />
                 <div className="col-md-2"></div>
             </div>
@@ -17,7 +17,7 @@ function HeaderSection(props) {
     )
 }
 
-function CityDropdown(props) {
+export function CityDropdown(props) {
     const cities = useSelector((state => state.weatherData.cities));
     const dispatch = useDispatch();
     const [city, setCity] = useState('');
@@ -35,7 +35,7 @@ function CityDropdown(props) {
         return () => {
             document.removeEventListener('click', handleClickOutside);
         }
-        
+
     })
 
     const citySearch = (value) => {
@@ -54,7 +54,7 @@ function CityDropdown(props) {
 
         cities.map(item => {
             if (item.name.toLowerCase().startsWith(city.toLowerCase())) {
-                cityList.push(<li key={item.id} onClick={(e) => { updateSelected(item) }} className="dropdown-item">{item.name}</li>)
+                cityList.push(<li key={item.id} data-testid={"city" + item.id} onClick={(e) => { updateSelected(item) }} className="dropdown-item">{item.name}</li>)
             }
         })
 
@@ -65,10 +65,10 @@ function CityDropdown(props) {
         <div id="citySearch" ref={ref} className="col-md-3 col-12 position-relative">
             <div id="citySearch-1" className="mt-md-0 mt-3 position-absolute">
                 <form>
-                    <input id="searchBar" type="text" className="form-control" value={city} onClick={() => setDropdown(!dropdown)}
+                    <input id="searchBar" data-testid="searchBar" type="text" className="form-control" value={city} onClick={() => setDropdown(!dropdown)}
                         onChange={(e) => citySearch(e.target.value)} placeholder="Search city" />
                 </form>
-                <ul id="dropdownList" className="dropdown mt-1">
+                <ul id="dropdownList" data-testid="dropdownList" className="dropdown mt-1">
                     {dropdown && <CityList />}
                 </ul>
             </div>

@@ -37,8 +37,8 @@ function OneDayWeatherSection(props) {
         <div className="col-md-6">
             <div className="card one-day-data bg-dark mt-3 mt-md-0 mb-4 mb-md-0">
                 <div className="card-header">
-                    <h5 className="card-title text-light p-1">Weather on {
-                        new Date(Object.keys(oneDayWeather)).toLocaleDateString("en", { weekday: 'long', day: 'numeric', month: 'short' })
+                    <h5 title="oneDayHeader" className="card-title text-light p-1">Weather on {
+                        new Date((Object.keys(oneDayWeather))).toLocaleDateString("en", { weekday: 'long', day: 'numeric', month: 'short' })
                     }</h5>
                 </div>
                 <div className="card-body">
@@ -46,7 +46,7 @@ function OneDayWeatherSection(props) {
                         <div className="col-12 col-md-6  d-flex">
                             <button style={temp} onClick={() => setChart('temp')} className="px-0 mx-1 btn chart-nav-btn">Temperature</button>
                             <button style={prec} onClick={() => setChart('prec')} className="px-0 mx-3 btn chart-nav-btn">Precipitation</button>
-                            <button style={wind} onClick={() => setChart('wind')} className="px-0 mx-1 btn chart-nav-btn">Wind</button>
+                            <button data-testid="windChart" style={wind} onClick={() => setChart('wind')} className="px-0 mx-1 btn chart-nav-btn">Wind</button>
                         </div>
                         <div className="col-12 mt-3 mt-md-0 chart-data">
                             {Object.keys(oneDayWeather).length !== 0 ? chartElement() : null}
@@ -58,19 +58,19 @@ function OneDayWeatherSection(props) {
                                 <div>
                                     <div className="float-start px-md-2 pe-2 temperature">{weatherIcon.TEMPERATURE}</div>
                                     <div className="float-end specific-header"><small>Feels Like</small>
-                                        <br /><strong>{fiveDayWeather[Object.keys(oneDayWeather)[0]].tempFeel}&#176; C</strong>
+                                        <br /><strong data-testid="temperature">{fiveDayWeather[Object.keys(oneDayWeather)[0]].tempFeel}&#176; C</strong>
                                     </div>
                                 </div>
                                 <div>
                                     <div className="float-start pe-2 wind-speed">{weatherIcon.WIND}</div>
                                     <div className="float-end specific-header"><small>Wind</small>
-                                        <br /><strong>{fiveDayWeather[Object.keys(oneDayWeather)[0]].windSpeed} km/h</strong>
+                                        <br /><strong data-testid="wind">{fiveDayWeather[Object.keys(oneDayWeather)[0]].windSpeed} km/h</strong>
                                     </div>
                                 </div>
                                 <div>
                                     <div className="float-start pe-2 humidity-one">{weatherIcon.HUMIDITY}</div>
                                     <div className="float-end specific-header"><small>Humidity</small>
-                                        <br /><strong>{fiveDayWeather[Object.keys(oneDayWeather)[0]].humidity}%</strong>
+                                        <br /><strong data-testid="humidityOneDay">{fiveDayWeather[Object.keys(oneDayWeather)[0]].humidity}%</strong>
                                     </div>
                                 </div>
                             </div>
@@ -78,19 +78,19 @@ function OneDayWeatherSection(props) {
                                 <div>
                                     <div className="cloud float-start pe-2 cloud">{weatherIcon.CLOUD}</div>
                                     <div className="float-end specific-header"><small>Cloud Cover</small>
-                                        <br /><strong>{fiveDayWeather[Object.keys(oneDayWeather)[0]].clouds}%</strong>
+                                        <br /><strong data-testid="clouds">{fiveDayWeather[Object.keys(oneDayWeather)[0]].clouds}%</strong>
                                     </div>
                                 </div>
                                 <div>
                                     <div className="float-start pe-2 visibility">{weatherIcon.VISIBILITY}</div>
                                     <div className="float-end me-md-5 specific-header"><small>Visibility</small>
-                                        <br /><strong>{fiveDayWeather[Object.keys(oneDayWeather)[0]].visibility} km</strong>
+                                        <br /><strong data-testid="visibility">{fiveDayWeather[Object.keys(oneDayWeather)[0]].visibility} km</strong>
                                     </div>
                                 </div>
                                 <div>
                                     <div className="float-start pe-2 rain-pop">{weatherIcon.RAIN}</div>
                                     <div className="float-end me-md-1 specific-header"><small>Rain</small>
-                                        <br /><strong>{fiveDayWeather[Object.keys(oneDayWeather)[0]].rain}%</strong>
+                                        <br /><strong data-testid="rain">{fiveDayWeather[Object.keys(oneDayWeather)[0]].rain}%</strong>
                                     </div>
                                 </div>
 
